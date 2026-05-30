@@ -4,6 +4,7 @@ app = FastAPI()
 
 @app.get("/")
 def home():
+    print("Hello, World!")
     return {"status": "success", "manager": "uv"}
 
 @app.get("/items/{item_id}")

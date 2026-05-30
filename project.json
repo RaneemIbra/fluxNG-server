@@ -1,0 +1,15 @@
+{
+  "name": "flux-server",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/flux-server",
+  "targets": {
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "uv run uvicorn main:app --reload",
+        "cwd": "apps/flux-server"
+      }
+    }
+  }
+}
