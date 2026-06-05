@@ -1,14 +1,14 @@
 {
-  "name": "flux-server",
+  "name": "fluxNG-server",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "sourceRoot": "apps/flux-server",
+  "sourceRoot": "apps/fluxNG-server",
   "targets": {
     "serve": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "uv run uvicorn main:app --reload",
-        "cwd": "apps/flux-server"
+        "command": "uv run uvicorn app.main:app --reload",
+        "cwd": "apps/fluxNG-server"
       }
     }
   }

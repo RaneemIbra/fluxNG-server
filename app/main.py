@@ -1,12 +1,15 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from .api.documents_router import router as documents_router
 
-app = FastAPI()
+app = FastAPI(title="FluxNG Engine", version="1.1.0")
 
-@app.get("/")
-def home():
-    print("Hello, World!")
-    return {"status": "success", "manager": "uv"}
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:4200"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: str = None):
-    return {"item_id": item_id, "query": q}
+app.include_router(documents_router)
